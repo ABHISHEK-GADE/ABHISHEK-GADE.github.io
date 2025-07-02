@@ -107,6 +107,46 @@ ul li {
   margin-bottom: 8px;
 }
 
+  /* 3D Cube */
+  .cube-wrapper {
+    width: 300px;
+    height: 300px;
+    margin: 40px auto;
+    perspective: 1000px;
+  }
+
+  .cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+  }
+
+  .cube .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,102,194,0.9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .cube .front { transform: rotateY(0deg) translateZ(150px); }
+  .cube .back { transform: rotateY(180deg) translateZ(150px); }
+  .cube .right { transform: rotateY(90deg) translateZ(150px); }
+  .cube .left { transform: rotateY(-90deg) translateZ(150px); }
+  .cube .top { transform: rotateX(90deg) translateZ(150px); }
+  .cube .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+  @keyframes rotateCube {
+    from { transform: rotateX(0) rotateY(0); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+  }
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {
